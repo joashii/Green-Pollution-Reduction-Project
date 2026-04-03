@@ -1,0 +1,1551 @@
+/* Import Montserrat font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ===== PROJECT SELECTION TAB STYLES ===== */
+@import url("styles.css");
+
+.upper-left,
+.upper-left *,
+.instructions-content,
+.instructions-content *,
+.control-btn,
+.run-optimization-btn {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* ===== UPPER LEFT PANEL ===== */
+.upper-left {
+  width: 22.5%;
+  height: 45%;
+  position: absolute;
+  top: 14%;
+  left: 4.5%;
+  z-index: 2;
+  
+  background: transparent;
+  border: none;
+  
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; 
+}
+
+.upper-upper-left {
+  width: 22.5%;
+  height: 7%;
+  position: absolute;
+  top: 8%;
+  left: 4.5%;
+  z-index: 3;
+  
+  background: transparent;
+  border: none;
+  
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; 
+}
+
+/* ===== PANEL HEADER (Return + Info icons) ===== */
+.panel-header {
+  display: flex;
+  justify-content: flex-end;  
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* Shared base style for both circular icons */
+.return-icon,
+.info-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Return icon (white circle with dark arrow) */
+.return-icon {
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.return-icon::before {
+  content: "↩";
+  font-weight: 600;
+}
+
+.return-icon:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+/* Info icon (subtle glassy circle with white "i") */
+.info-icon {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.info-icon::before {
+  content: "i";
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.info-icon:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.08);
+}
+
+
+/* ===== INSTRUCTIONS CONTENT ===== */
+.instructions-content {
+  flex: none;
+  overflow-y: hidden;
+  padding: 10px 5px;
+  margin-bottom: 0;  /* Remove margin */
+}
+
+.instructions-content ol {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 17px;
+  line-height: 2;
+  font-weight: 500;
+}
+
+.instructions-content li {
+  margin-bottom: 8px;  
+  padding-left: 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ===== BUTTONS SECTION ===== */
+.buttons-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Button row (Select All + Reset) */
+.button-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===== ALL BUTTONS - Shared Base Style ===== */
+.control-btn,
+.run-optimization-btn {
+  background: linear-gradient(180deg, 
+    rgba(80, 100, 60, 0.8) 0%,
+    rgba(30, 40, 30, 0.9) 100%
+  );
+  color: white;
+  border: 2px solid rgba(139, 195, 74, 0.3);
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect - Gradient Glow appears */
+.control-btn:hover,
+.run-optimization-btn:hover {
+  background: linear-gradient(180deg, 
+    rgba(100, 120, 80, 0.9) 0%, 
+    rgba(60, 80, 60, 0.9) 100%
+  );
+  transform: translateY(-2px);
+  color: white;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 20px rgba(139, 195, 74, 0.4);
+}
+
+/* Gradient border on hover */
+.control-btn:hover::before,
+.run-optimization-btn:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    #B8E986 0%,      /* Yellow-Green */
+    #8BC34A 25%,     /* Green */
+    #CDDC39 50%,     /* Lime */
+    #FFC107 75%,     /* Amber */
+    #FF9800 100%     /* Orange */
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+/* Outer glow on hover */
+.control-btn:hover::after,
+.run-optimization-btn:hover::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, 
+    rgba(184, 233, 134, 0.4) 0%,
+    rgba(139, 195, 74, 0.4) 25%,
+    rgba(205, 220, 57, 0.3) 50%,
+    rgba(255, 193, 7, 0.3) 75%,
+    rgba(255, 152, 0, 0.4) 100%
+  );
+  filter: blur(12px);
+  z-index: -2;
+  opacity: 0.8;
+}
+
+/* Active/Click effect */
+.control-btn:active,
+.run-optimization-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 10px rgba(139, 195, 74, 0.6),
+    inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== INDIVIDUAL BUTTON ADJUSTMENTS ===== */
+/* Select All & Reset buttons - side by side */
+.control-btn {
+  flex: 1;
+}
+
+/* Run Optimization button - full width, slightly bigger */
+.run-optimization-btn {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+/* ===== BOTTOM LEFT SECTION - Target Pollutants TABLE ===== */
+.bottom-left {
+  width: 22.5%;
+  height: 44%;
+  position: absolute;
+  top: 52%;
+  left: 4.5%;
+  z-index: 2;
+  
+  /* REMOVE ALL BACKGROUNDS */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  /* ADJUST GAP/MARGIN HERE */
+  margin-top: 0; /* Change this value to adjust vertical gap */
+  margin-left: 0; /* Change this value to adjust horizontal gap */
+}
+
+/* Pollutants Table Container - TRANSPARENT */
+.pollutants-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  background: transparent; /* TRANSPARENT - shows your bottom-left design */
+  padding: 20px; /* Add padding so table doesn't touch edges */
+}
+
+/* Each row in the table */
+.pollutant-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr 1.3fr;
+  width: 100%;
+  border: none; /* INVISIBLE BORDERS */
+  border-bottom: 1px solid rgba(100, 150, 100, 0.5); /* ONLY BOTTOM BORDER - EDIT GRADIENT/OPACITY HERE */
+  transition: background 0.2s ease;
+}
+
+/* Remove border from last row */
+.pollutant-row:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect on rows */
+.pollutant-row:hover {
+  background: rgba(100, 150, 100, 0.08);
+}
+
+/* Individual cells */
+.pollutant-cell {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 18px; /* BIGGER FONT */
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  border: none; /* INVISIBLE BORDERS */
+}
+
+/* Pollutant name cells (columns 1 and 3) */
+.pollutant-name {
+  font-weight: 600;
+}
+
+/* Target value cells (columns 2 and 4) - GREEN COLOR */
+.pollutant-value {
+  font-weight: 600;
+  color: #8BC34A; 
+}
+
+/* Vertical separator between the two tables - INVISIBLE */
+.pollutant-cell:nth-child(2) {
+  border-right: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1366px) {
+  .pollutant-cell {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+  
+  .pollutants-section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pollutant-cell {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  
+  .pollutants-section-title {
+    font-size: 24px;
+  }
+}
+/* ===== BOTTOM LEFT SECTION - Target Pollutants TABLE ===== */
+.bottom-left {
+  width: 22.5%;
+  height: 44%;
+  position: absolute;
+  top: 52%;
+  left: 4.5%;
+  z-index: 2;
+  
+  /* REMOVE ALL BACKGROUNDS - Your design handles this */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  /* ADJUST GAP/MARGIN HERE */
+  margin-top: 0; /* Change this value to adjust vertical gap */
+  margin-left: 0; /* Change this value to adjust horizontal gap */
+}
+
+/* Pollutants Table Container - TRANSPARENT */
+.pollutants-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  background: transparent; /* TRANSPARENT - shows your bottom-left design */
+  
+  /* ADJUST TABLE POSITION */
+  padding-top: 130px;    /* MOVE DOWN - Increase to move lower, decrease to move higher */
+  padding-left: 30px;   /* Left spacing from edge */
+  padding-right: 20px;  /* Right spacing from edge */
+  padding-bottom: 20px; /* Bottom spacing from edge */
+}
+
+/* Each row in the table */
+.pollutant-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr 1.3fr;
+  width: 100%;
+  border: none; /* INVISIBLE BORDERS */
+  border-bottom: 1px solid rgba(100, 150, 100, 0.5); 
+  transition: background 0.2s ease;
+}
+
+/* Hover effect on rows */
+.pollutant-row:hover {
+  background: rgba(100, 150, 100, 0.08);
+}
+
+/* Individual cells */
+.pollutant-cell {
+  padding: 10px 10px;
+  display: flex;
+  align-items: left;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 17px; /* BIGGER FONT */
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  border: none; /* INVISIBLE BORDERS */
+}
+
+/* Pollutant name cells (columns 1 and 3) */
+.pollutant-name {
+  font-weight: 600;
+}
+
+/* Target value cells (columns 2 and 4) - GREEN COLOR */
+.pollutant-value {
+  font-weight: 600;
+  color: #8BC34A; /* GREEN COLOR - EDIT THIS */
+
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 1366px) {
+  .pollutant-cell {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+  
+  .pollutants-section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pollutant-cell {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  
+  .pollutants-section-title {
+    font-size: 24px;
+  }
+}
+
+/* ===== CENTER SECTION - Projects Grid ===== */
+.center {
+  width: 34.5%;
+  height: 80%;
+  position: absolute;
+  top: 13.5%;
+  left: 28.5%;
+  z-index: 2;
+  
+  /* Remove temporary background */
+  background: transparent;
+  opacity: 1;
+  
+  /* Make it scrollable */
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Padding for content */
+  padding: 20px 15px;
+  
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 195, 74, 0.5) rgba(0, 0, 0, 0.2);
+}
+
+/* Webkit scrollbar styling */
+.center::-webkit-scrollbar {
+  width: 8px;
+}
+
+.center::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.center::-webkit-scrollbar-thumb {
+  background: rgba(139, 195, 74, 0.5);
+  border-radius: 10px;
+}
+
+.center::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 195, 74, 0.7);
+}
+
+/* Projects Grid - 3 columns */
+.center-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+/* Individual Project Card (RECTANGLE 1:0.5 aspect ratio) */
+.center-project-card {
+  background: linear-gradient(135deg, 
+    rgba(30, 50, 30, 0.8) 0%,
+    rgba(40, 60, 40, 0.7) 100%
+  );
+  border: 2px solid rgba(139, 195, 74, 0.3);
+  border-radius: 12px;
+  padding: 12px 15px;
+  
+  /* Rectangle aspect ratio 1:0.5 (width:height = 2:1) */
+  aspect-ratio: 2 / 1;
+  
+  cursor: pointer;
+  transition: all 0.4s ease;
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  position: relative;
+  
+  /* Subtle shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Name */
+.center-card-name {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.2;
+  text-align: center;
+  
+  /* Take up space */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin-bottom: 6px;
+  padding: 0 25px 0 5px; /* Right padding for info button */
+}
+
+/* Price */
+.center-card-price {
+  color: #B8E986;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Info Button */
+.center-card-info {
+  width: 24px;
+  height: 24px;
+  background: rgba(139, 195, 74, 0.25);
+  border: 2px solid rgba(139, 195, 74, 0.5);
+  border-radius: 50%;
+  
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.center-card-info:hover {
+  background: rgba(139, 195, 74, 0.5);
+  border-color: #8BC34A;
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(139, 195, 74, 0.6);
+}
+
+/* Hover effect for card */
+.center-project-card:hover {
+  background: linear-gradient(135deg, 
+    rgba(45, 70, 45, 0.9) 0%,
+    rgba(55, 80, 55, 0.85) 100%
+  );
+  border-color: rgba(139, 195, 74, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
+}
+
+/* SELECTED STATE - Yellow-Green to Orange Gradient Glow */
+.center-project-card.selected {
+  background: linear-gradient(135deg, 
+    rgba(139, 195, 74, 0.4) 0%,
+    rgba(100, 140, 60, 0.5) 100%
+  );
+  border: 2px solid transparent;
+  
+  /* Gradient border effect */
+  background-clip: padding-box;
+  position: relative;
+}
+
+/* Gradient glow border for selected cards */
+.center-project-card.selected::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    #B8E986 0%,      /* Yellow-Green */
+    #8BC34A 25%,     /* Green */
+    #CDDC39 50%,     /* Lime */
+    #FFC107 75%,     /* Amber */
+    #FF9800 100%     /* Orange */
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+/* Outer gradient glow for selected cards */
+.center-project-card.selected::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, 
+    rgba(184, 233, 134, 0.4) 0%,
+    rgba(139, 195, 74, 0.4) 25%,
+    rgba(205, 220, 57, 0.3) 50%,
+    rgba(255, 193, 7, 0.3) 75%,
+    rgba(255, 152, 0, 0.4) 100%
+  );
+  filter: blur(10px);
+  z-index: -2;
+  opacity: 0.8;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Pulsing glow animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(15px);
+  }
+}
+
+/* Selected card text styling */
+.center-project-card.selected .center-card-name {
+  color: #FFFFFF;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(184, 233, 134, 0.6);
+}
+
+.center-project-card.selected .center-card-price {
+  color: #FFD54F;
+  font-weight: 800;
+  text-shadow: 0 0 6px rgba(255, 213, 79, 0.5);
+}
+
+.center-project-card.selected .center-card-info {
+  background: rgba(255, 193, 7, 0.4);
+  border-color: #FFC107;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+}
+
+
+/* ===== UPPER RIGHT SECTION - Optimization Summary ===== */
+.upper-right {
+  width: 28.5%;
+  height: 47%;
+  position: absolute;
+  top: 9%;
+  left: 66%;
+  z-index: 2;
+  
+  background: transparent;
+  opacity: 1;
+  
+  /* Layout - MAXIMIZE SPACE */
+  padding: 20px;  /* Reduced from 30px 25px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== PLACEHOLDER (No results yet) ===== */
+.summary-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  opacity: 0.6;
+}
+
+.placeholder-icon {
+  font-size: 64px;
+  opacity: 0.5;
+}
+
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.placeholder-subtext {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== SUMMARY CONTENT (After optimization) ===== */
+.summary-content {
+  width: 100%;
+  height: 100%;  /* Take full height */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;  /* Reduced from 25px */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 10px 20px;  /* Slightly reduced */
+  border-radius: 25px;
+  font-size: 16px;  /* Slightly smaller */
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;  /* Don't shrink */
+}
+
+/* Feasible badge - green gradient glow */
+.status-badge.feasible {
+  background: linear-gradient(135deg, 
+    rgba(139, 195, 74, 0.3) 0%,
+    rgba(104, 159, 56, 0.4) 100%
+  );
+  color: #B8E986;
+  border: 2px solid #8BC34A;
+  box-shadow: 
+    0 0 20px rgba(139, 195, 74, 0.5),
+    inset 0 0 15px rgba(139, 195, 74, 0.2);
+}
+
+/* Infeasible badge - red */
+.status-badge.infeasible {
+  background: rgba(231, 76, 60, 0.2);
+  color: #FF6B6B;
+  border: 2px solid #E74C3C;
+  box-shadow: 
+    0 0 15px rgba(231, 76, 60, 0.3),
+    inset 0 0 10px rgba(231, 76, 60, 0.1);
+}
+
+/* Large stat (Optimal Cost) - MAXIMIZED */
+.summary-stat-large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 30px 20px;
+  background: rgba(30, 50, 30, 0.4);
+  border-radius: 15px;
+  border: 2px solid rgba(139, 195, 74, 0.3);
+  flex: 1;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.stat-value-large {
+  color: #B8E986;
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(184, 233, 134, 0.5);
+  letter-spacing: 1px;
+}
+
+/* Projects Used Row - Horizontal with icon button */
+.summary-stat-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  flex-shrink: 0;
+}
+
+.stat-label-small {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+.stat-value-small {
+  color: #8BC34A;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Circular Iterations Icon Button */
+.iterations-icon-btn {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, 
+    rgba(80, 100, 60, 0.8) 0%,
+    rgba(30, 40, 30, 0.9) 100%
+  );
+  border: 2px solid rgba(139, 195, 74, 0.4);
+  border-radius: 50%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+  
+  flex-shrink: 0;
+}
+
+/* Icon using pseudo-element */
+.iterations-icon-btn::before {
+  content: '📊';
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover effect */
+.iterations-icon-btn:hover {
+  background: linear-gradient(135deg, 
+    rgba(100, 120, 80, 0.9) 0%,
+    rgba(60, 80, 60, 0.95) 100%
+  );
+  border-color: #8BC34A;
+  transform: scale(1.15);
+  box-shadow: 
+    0 0 20px rgba(139, 195, 74, 0.6),
+    0 0 30px rgba(139, 195, 74, 0.4);
+}
+
+/* Active/Click effect */
+.iterations-icon-btn:active {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 15px rgba(139, 195, 74, 0.5),
+    inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: Pulse animation */
+@keyframes iconPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(139, 195, 74, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(139, 195, 74, 0.6);
+  }
+}
+
+.iterations-icon-btn {
+  animation: iconPulse 2.5s ease-in-out infinite;
+}
+
+/* Infeasible message */
+.summary-message {
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.infeasible-msg {
+  background: rgba(231, 76, 60, 0.15);
+  color: #FF6B6B;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.summary-suggestion {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* to be edited */
+.bottom-right {
+  width: 28.5%;
+  height: 40%;
+  background: transparent;
+  opacity: 20%;
+  position: absolute;
+  top: 55.5%;
+  left: 66%;
+  z-index: 2; /* on top */
+}
+/* ===== MAIN CONTAINER ===== */
+.project-selection-container {
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ===== SHINY NOTIFICATION POSITIONING ===== */
+.shiny-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10001 !important;
+  background: rgba(20, 40, 40, 0.98) !important;
+  border: 2px solid #8BC34A !important;
+  border-radius: 12px !important;
+  box-shadow: 0 0 30px rgba(139, 195, 74, 0.6) !important;
+  color: white !important;
+  padding: 15px 20px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 14px !important;
+  min-width: 300px !important;
+}
+
+.shiny-notification-message {
+  color: white !important;
+}
+
+.shiny-notification-error {
+  border-color: #FF6B6B !important;
+  box-shadow: 0 0 30px rgba(255, 107, 107, 0.6) !important;
+}
+
+.shiny-notification-warning {
+  border-color: #FFC107 !important;
+  box-shadow: 0 0 30px rgba(255, 193, 7, 0.6) !important;
+}
+
+.shiny-notification-close {
+  color: white !important;
+  opacity: 0.7 !important;
+}
+
+.shiny-notification-close:hover {
+  opacity: 1 !important;
+}
+
+/* ===== RESULTS MODAL ===== */
+
+/* Modal backdrop */
+.results-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal container */
+.results-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, 
+    rgba(20, 40, 40, 0.98) 0%,
+    rgba(30, 50, 50, 0.98) 100%
+  );
+  border: 3px solid #8BC34A;
+  border-radius: 20px;
+  box-shadow: 
+    0 0 40px rgba(139, 195, 74, 0.6),
+    0 0 80px rgba(139, 195, 74, 0.4),
+    inset 0 0 30px rgba(139, 195, 74, 0.1);
+  
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+  
+  z-index: 10001;
+  animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  font-family: 'Montserrat', sans-serif;
+  
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 195, 74, 0.5) rgba(0, 0, 0, 0.3);
+}
+
+.results-modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.results-modal::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.results-modal::-webkit-scrollbar-thumb {
+  background: rgba(139, 195, 74, 0.5);
+  border-radius: 10px;
+}
+
+.results-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 195, 74, 0.7);
+}
+
+/* Modal header */
+.results-modal-header {
+  padding: 30px 40px 20px;
+  border-bottom: 2px solid rgba(139, 195, 74, 0.3);
+  position: relative;
+}
+
+.results-modal-title {
+  color: #B8E986;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(184, 233, 134, 0.5);
+}
+
+.results-modal-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  margin: 8px 0 0 0;
+}
+
+/* Close button */
+.results-modal-close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 107, 107, 0.2);
+  border: 2px solid rgba(255, 107, 107, 0.5);
+  border-radius: 50%;
+  color: #FF6B6B;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.results-modal-close:hover {
+  background: rgba(255, 107, 107, 0.4);
+  border-color: #FF6B6B;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.6);
+}
+
+/* Modal body */
+.results-modal-body {
+  padding: 30px 40px;
+}
+
+/* Status section */
+.results-status-section {
+  text-align: center;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  background: rgba(30, 50, 30, 0.4);
+}
+
+.results-status-badge {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+.results-status-badge.feasible {
+  background: linear-gradient(135deg, 
+    rgba(139, 195, 74, 0.3) 0%,
+    rgba(104, 159, 56, 0.4) 100%
+  );
+  color: #B8E986;
+  border: 2px solid #8BC34A;
+  box-shadow: 
+    0 0 20px rgba(139, 195, 74, 0.5),
+    inset 0 0 15px rgba(139, 195, 74, 0.2);
+}
+
+.results-status-badge.infeasible {
+  background: rgba(231, 76, 60, 0.2);
+  color: #FF6B6B;
+  border: 2px solid #E74C3C;
+  box-shadow: 
+    0 0 15px rgba(231, 76, 60, 0.3),
+    inset 0 0 10px rgba(231, 76, 60, 0.1);
+}
+
+.results-optimal-cost {
+  color: #B8E986;
+  font-size: 48px;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(184, 233, 134, 0.6);
+  margin: 10px 0;
+}
+
+.results-cost-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Projects section */
+.results-projects-section {
+  margin-top: 30px;
+}
+
+.results-section-title {
+  color: #8BC34A;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(139, 195, 74, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Project cards in modal */
+.results-project-card {
+  background: linear-gradient(135deg, 
+    rgba(30, 50, 30, 0.6) 0%,
+    rgba(40, 60, 40, 0.5) 100%
+  );
+  border: 2px solid rgba(139, 195, 74, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.results-project-card:hover {
+  border-color: rgba(139, 195, 74, 0.6);
+  box-shadow: 0 4px 15px rgba(139, 195, 74, 0.2);
+  transform: translateX(5px);
+}
+
+.results-project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.results-project-name {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.results-project-units {
+  color: #B8E986;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.results-project-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(139, 195, 74, 0.2);
+}
+
+.results-project-cost {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.results-project-total {
+  color: #FFD54F;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Infeasible message */
+.results-infeasible-message {
+  background: rgba(231, 76, 60, 0.15);
+  border: 2px solid rgba(231, 76, 60, 0.4);
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.results-infeasible-title {
+  color: #FF6B6B;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.results-infeasible-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Action buttons */
+.results-modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 30px 40px 40px;
+  border-top: 2px solid rgba(139, 195, 74, 0.3);
+}
+
+.results-action-btn {
+  background: linear-gradient(180deg, 
+    rgba(80, 100, 60, 0.8) 0%,
+    rgba(30, 40, 30, 0.9) 100%
+  );
+  color: white;
+  border: 2px solid rgba(139, 195, 74, 0.3);
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.results-action-btn:hover {
+  background: linear-gradient(180deg, 
+    rgba(100, 120, 80, 0.9) 0%, 
+    rgba(60, 80, 60, 0.9) 100%
+  );
+  transform: translateY(-2px);
+  border-color: #8BC34A;
+  box-shadow: 0 6px 20px rgba(139, 195, 74, 0.4);
+}
+
+.results-action-btn.primary {
+  background: linear-gradient(180deg, 
+    rgba(139, 195, 74, 0.8) 0%,
+    rgba(104, 159, 56, 0.9) 100%
+  );
+  border-color: #8BC34A;
+}
+
+.results-action-btn.primary:hover {
+  background: linear-gradient(180deg, 
+    rgba(139, 195, 74, 1) 0%,
+    rgba(104, 159, 56, 1) 100%
+  );
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .results-modal {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .results-modal-header,
+  .results-modal-body,
+  .results-modal-actions {
+    padding: 20px;
+  }
+  
+  .results-modal-title {
+    font-size: 24px;
+  }
+  
+  .results-optimal-cost {
+    font-size: 36px;
+  }
+}
+
+/* ===== PROJECT INFO MODAL (TEXT ONLY, PORTRAIT) ===== */
+
+.project-info-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  z-index: 12000;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.project-info-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 460px;
+  max-height: 85vh;
+  background: linear-gradient(135deg,
+    rgba(18, 32, 22, 0.98) 0%,
+    rgba(22, 44, 30, 0.98) 40%,
+    rgba(26, 52, 34, 0.98) 100%
+  );
+  border-radius: 18px;
+  border: 2px solid rgba(139, 195, 74, 0.7);
+  box-shadow:
+    0 0 30px rgba(139, 195, 74, 0.5),
+    0 0 60px rgba(0, 0, 0, 0.9);
+  z-index: 12001;
+  overflow-y: auto;
+  font-family: 'Montserrat', sans-serif;
+  animation: modalSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Header */
+.project-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 10px;
+  border-bottom: 1px solid rgba(139, 195, 74, 0.35);
+}
+
+.project-info-title {
+  color: #B8E986;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.project-info-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+  color: #FF6B6B;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.project-info-close:hover {
+  background: rgba(255, 107, 107, 0.2);
+  border-color: #FF6B6B;
+  transform: rotate(90deg) scale(1.05);
+}
+
+/* Body */
+.project-info-body {
+  padding: 18px 22px 22px;
+}
+
+/* Cost pill */
+.project-info-cost-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(24, 60, 32, 0.9);
+  border: 1px solid rgba(139, 195, 74, 0.6);
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.project-info-cost-value {
+  color: #FFD54F;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Subtitle */
+.project-info-subtitle {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Detail list */
+.project-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-info-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-info-item:last-child {
+  border-bottom: none;
+}
+
+.project-info-label {
+  font-weight: 600;
+  color: rgba(184, 233, 134, 0.92);
+  font-size: 13px;
+}
+
+.project-info-value {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .project-info-modal {
+    max-width: 95%;
+    border-radius: 16px;
+  }
+  .project-info-header,
+  .project-info-body {
+    padding: 14px 16px 16px;
+  }
+}
+
+/* ===== POLLUTANT TABLE STYLE (PROJECT INFO) ===== */
+
+.pi-pollutant-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.pi-pollutant-table tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pi-pollutant-table td {
+  padding: 6px 10px;
+  font-size: 14px;
+  text-align: left; 
+}
+
+/* pollutant names (column 1 & 3) */
+.pi-pollutant-name {
+  font-weight: 600;
+  color: #eef7d0;   /* soft green tint */
+  letter-spacing: .3px;
+}
+
+/* pollutant numbers (column 2 & 4) */
+.pi-pollutant-value {
+  font-weight: 500;
+  color: #ffffff;
+  opacity: .95;
+}
