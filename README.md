@@ -28,7 +28,7 @@ install.packages(c("shiny", "DT", "shinyjs"))
 
 ## Running the App
 
-### Option 1: Locally
+#### Option 1: Locally
 
 1. Open R or RStudio
 2. Set working directory to project folder
@@ -40,7 +40,7 @@ shiny::runApp()
 
 ---
 
-### Option 2: GitHub Codespaces
+#### Option 2: GitHub Codespaces
 
 1. Open your repository in Codespaces
 2. Open terminal
@@ -61,19 +61,19 @@ shiny::runApp(host = "0.0.0.0", port = 3838)
 
 ---
 
-## <span>🛠️</span> Troubleshooting
+## Troubleshooting
 
-### "could not find function 'useShinyjs'"
+#### "could not find function 'useShinyjs'"
 
 * Ensure `shinyjs` is installed
 * Use: `shinyjs::useShinyjs()`
 
-### "could not find function 'renderDT'"
+#### "could not find function 'renderDT'"
 
 * Ensure `DT` is installed
 * Use: `DT::renderDT()`
 
-### Data not loading
+#### Data not loading
 
 * Check file paths in `source()`
 * Ensure `src/` folder exists
@@ -85,15 +85,15 @@ shiny::runApp(host = "0.0.0.0", port = 3838)
 * Packages may need to be reinstalled in cloud environments like Codespaces
 * Always commit and push changes to GitHub to save progress
 
-## <span>📄</span> License
+## License
 
 This project is for academic purposes.
 
 ---
 
-## 💻 Using GitHub Codespaces
+## Using GitHub Codespaces
 
-### Starting / Opening a Codespace
+#### Starting / Opening a Codespace
 
 1. Go to your repository on GitHub
 2. Click **Code**
@@ -102,7 +102,7 @@ This project is for academic purposes.
 
 ---
 
-### Stopping a Codespace (Save Free Usage)
+#### Stopping a Codespace (Save Free Usage)
 
 1. Go to your repository
 2. Click **Code → Codespaces**
@@ -113,7 +113,7 @@ This project is for academic purposes.
 
 ---
 
-### Resuming a Codespace
+#### Resuming a Codespace
 
 1. Go to your repository
 2. Click **Code → Codespaces**
@@ -123,7 +123,7 @@ This project is for academic purposes.
 
 ---
 
-### Running the App in Codespaces
+#### Running the App in Codespaces
 
 Open a terminal and run:
 
