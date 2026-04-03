@@ -1,9 +1,12 @@
 # main.R
-# Entry point for the Pollution Reduction Optimization Shiny App
+packages <- c("shiny", "DT", "shinyjs")
 
-library(shiny)
-library(DT)
-library(shinyjs)
+for (p in packages) {
+  if (!require(p, character.only = TRUE)) {
+    install.packages(p, repos = "https://cloud.r-project.org")
+    library(p, character.only = TRUE)
+  }
+}
 
 # Force shiny to launch in browser
 options(shiny.launch.browser = TRUE)

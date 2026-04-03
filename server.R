@@ -1215,7 +1215,7 @@ server <- function(input, output, session) {
   
   # ===== DATA TAB TABLES =====
   
-  output$projects_data_table <- renderDT({
+  output$projects_data_table <- DT::renderDT({
     datatable(
       projects,
       options = list(
@@ -1227,7 +1227,7 @@ server <- function(input, output, session) {
       formatCurrency(columns = 'Cost', currency = "$", digits = 2)
   })
   
-  output$targets_data_table <- renderDT({
+  output$targets_data_table <- DT::renderDT({
     datatable(
       targets,
       options = list(

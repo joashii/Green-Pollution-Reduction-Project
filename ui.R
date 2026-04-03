@@ -3,7 +3,7 @@
 
 ui <- fluidPage(
   
-  useShinyjs(),
+  shinyjs::useShinyjs(),
   
   # Include custom CSS
   tags$head(
